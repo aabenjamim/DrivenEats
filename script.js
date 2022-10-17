@@ -1,4 +1,9 @@
 
+let comida;
+let bebida;
+let sobremesa;
+
+
 function selecionarItem1(itemClicado){
 
    const item = document.querySelector('.comidas .selecionada')
@@ -8,6 +13,12 @@ function selecionarItem1(itemClicado){
    }
 
    itemClicado.classList.toggle('selecionada')
+
+   const prato = document.querySelector('.comidas .selecionada>h1')
+   
+   comida = prato.innerHTML
+
+   liberarBotao()
 }
  
 
@@ -20,6 +31,12 @@ function selecionarItem2(itemClicado){
     }
  
     itemClicado.classList.toggle('selecionada')
+
+    const refri = document.querySelector('.bebidas .selecionada>h1')
+   
+    bebida = refri.innerHTML
+
+    liberarBotao()
  }
 
  function selecionarItem3(itemClicado){
@@ -31,4 +48,19 @@ function selecionarItem2(itemClicado){
     }
  
     itemClicado.classList.toggle('selecionada')
+
+    const doce = document.querySelector('.sobremesas .selecionada>h1')
+   
+    sobremesa = doce.innerHTML
+
+    liberarBotao()
+ }
+
+ function liberarBotao(){
+
+    const botaoPedido = document.querySelector('.botao-pedido')
+
+    if ( comida !== undefined && bebida!== undefined && sobremesa !== undefined){
+        botaoPedido.classList.remove('escondido')
+    }
  }
